@@ -55,7 +55,7 @@ namespace BasicBot
 
             if (message.Content == "test")
             {
-                await message.Channel.SendMessageAsync("KusaBotTest");
+                await message.Channel.SendMessageAsync("BotTest");
             }
         }
     }
