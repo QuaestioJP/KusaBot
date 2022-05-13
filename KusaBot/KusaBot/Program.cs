@@ -4,18 +4,18 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
 
-namespace BasicBot
+namespace KusaBot
 {
-    class Program
+    class KusaBot
     {
         private readonly DiscordSocketClient _client;
         static void Main(string[] args)
-        => new Program()
+        => new KusaBot()
         .MainAsync()
         .GetAwaiter()
         .GetResult();
 
-        public Program()
+        public KusaBot()
         {
             _client = new DiscordSocketClient();
 
@@ -49,10 +49,11 @@ namespace BasicBot
 
         private async Task MessageReceivedAsync(SocketMessage message)
         {
+            //メッセージがBot自身の場合無視する
             if (message.Author.Id == _client.CurrentUser.Id)
                 return;
 
-
+            //内容がtestの場合
             if (message.Content == "test")
             {
                 await message.Channel.SendMessageAsync("BotTest");
